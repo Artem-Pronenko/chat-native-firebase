@@ -1,17 +1,14 @@
-import firebase from 'firebase/app'
-import 'firebase/auth'
-
-
-const isAuthChecker = () => {
-  firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-      console.log('user exist')
-      return user
-    } else {
-      console.log('user not exist')
-      return null
-    }
-  })
-}
-
-export default isAuthChecker
+// import firebase from 'firebase/app'
+// import 'firebase/auth'
+//
+// const auth = firebase.auth()
+//
+//
+// const isAuthChecker = () => new Promise(res => {
+//   auth.onAuthStateChanged(user => {
+//     res(user || null)
+//   })
+// })
+//
+//
+// export default isAuthChecker
