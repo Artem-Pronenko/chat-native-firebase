@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Firebase Chat</title>
+</head>
+<body>
+
+<div id="app">
+  
+  <div>
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand" href="#">Chat</a>
+      <button class="btn">Выйти / Сменить аккаунт</button>
+    </nav>
+  </div>
+  
+  
+  <div class="container">
+    <div class="chat-wrapper">
+      <div class="row">
+        <div class="messages col-12">
+          
+          <div class="message d-flex justify-content-between align-items-center">
+            <div class="message-of d-flex">
+              <div class="message-user_img">
+                <img src="https://via.placeholder.com/100x100" alt="user img">
+              </div>
+              <div class="message__info d-flex flex-column ml-2">
+                <strong class="message__username">Артем Проненко</strong>
+                <p class="message__text mr-2">Текст СМС</p>
+              </div>
+            </div>
+            <span class="date small">12:55</span>
+          </div>
+        
+        </div>
+        <form class="m-auto d-flex message-form">
+          <input
+              class="form-control input-message"
+              type="text"
+              placeholder="Сообщение..."
+              aria-label="Message input"
+          >
+          <button class="btn btn-primary btn-send-message">Отправить</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
