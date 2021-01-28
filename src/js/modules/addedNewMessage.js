@@ -28,11 +28,18 @@ export const handleMessage = user => {
   const messageForm = document.querySelector('.message-form')
 
   const handleForm = e => {
-    const input = document.querySelector('.input-message')
     e.preventDefault()
+    const input = document.querySelector('.input-message')
+    const message = input.value
+    if (message.trim() === '') {
+      alert('Для отправки формы поле должно быть заполнено!')
+      return
+    }
+
     setPost({
-      message: input.value, user
-    }).then(() => input.value = '')
+      message, user
+    })
+      .then(() => input.value = '')
 
   }
 

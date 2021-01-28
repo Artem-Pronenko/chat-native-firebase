@@ -1,13 +1,19 @@
-export const mainContent = () => {
+export const mainContent = ({displayName, photoURL}) => {
+  const $el = document.createElement('div')
 
-  return `
-  <div>
-    <nav class="navbar navbar-light bg-light justify-content-between">
-      <a class="navbar-brand" href="#">Chat</a>
-      <button class="btn">Выйти / Сменить аккаунт</button>
-    </nav>
-  </div>
-    
+  $el.innerHTML = `
+    <div>
+      <nav class="navbar navbar-light bg-light justify-content-between">
+        <div class="container">
+          <a class="navbar-brand" href="#">Chat</a>
+          <button class="btn profile profile-button">
+            <img class="user-img" src="${photoURL}" alt="user img">
+            <span class="user-name">${displayName}</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+      
     <div class="container">
       <div class="chat-wrapper">
         <div class="row">
@@ -27,4 +33,7 @@ export const mainContent = () => {
       </div>
     </div>
   `
+  return {
+    node: $el
+  }
 }

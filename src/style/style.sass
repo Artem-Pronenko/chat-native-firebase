@@ -1,6 +1,27 @@
 @import "blocks/auth"
 @import "blocks/chat"
+@import "blocks/navbar"
+@import "blocks/user-settings"
 
 
+.modal
+  display: block
+  opacity: 0
+  transition: all 0.5s
+  visibility: hidden
 
+
+.modal-dialog
+  margin-top: -1000px
+  transition: all 0.5s
+
+.modal.show
+  opacity: 1
+  visibility: visible
+
+  .modal-dialog
+    margin-top: 10%
+
+.my-message
+  color: #537dfc
 
