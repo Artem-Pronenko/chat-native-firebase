@@ -5,7 +5,7 @@ export const mainContent = ({displayName, photoURL}) => {
     <div>
       <nav class="navbar navbar-light bg-light justify-content-between">
         <div class="container">
-          <a class="navbar-brand" href="#">Chat</a>
+          <a class="navbar-brand" href="/">Chat</a>
           <button class="btn profile profile-button">
             <img class="user-img" src="${photoURL}" alt="user img">
             <span class="user-name">${displayName}</span>

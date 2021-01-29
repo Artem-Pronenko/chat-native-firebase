@@ -1,12 +1,13 @@
-export const userSettingsModal = ({displayName, photoURL, userBio}) => {
+export const userSettingsModal = () => {
   const $el = document.createElement('div')
+
   $el.innerHTML = `
-    <div class="modal user-modal" tabindex="-1" role="dialog">
+    <div class="modal user-settings-modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Настройки профиля</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close close-user-settings" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -19,7 +20,6 @@ export const userSettingsModal = ({displayName, photoURL, userBio}) => {
                       class="form-control form-control-lg input-user-name"
                       placeholder="Имя"
                       aria-label="Username input"
-                      value="${displayName}"
                   >
                 </fieldset>
                 <fieldset class="form-group">
@@ -28,7 +28,6 @@ export const userSettingsModal = ({displayName, photoURL, userBio}) => {
                       class="form-control form-control-lg input-user-photo"
                       placeholder="Фотография"
                       aria-label="Photo input"
-                      value="${photoURL}"
                   >
                 </fieldset>
                 <fieldset class="form-group">
@@ -37,12 +36,12 @@ export const userSettingsModal = ({displayName, photoURL, userBio}) => {
                       class="form-control form-control-lg input-user-bio"
                       placeholder="Кратко о себе"
                       aria-label="Bio input"
-                      value="${userBio || ''}"
                   >
                 </fieldset>
               </fieldset>
-              <button type="submit" class="btn btn-primary float-right">Save changes</button>
+              <button type="submit" class="btn btn-primary float-right">Сохранить</button>
             </form>
+            <button class="btn btn-primary btn-danger signOut">Выход</button>
           </div>
         </div>
       </div>

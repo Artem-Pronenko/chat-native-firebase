@@ -24,11 +24,11 @@
   padding-bottom: 40px
 
 .message
-  padding-left: 20px
-  padding-right: 20px
+  padding: 10px
 
   &__text
     font-size: 14px
+    margin-bottom: 0
 
   &__username
     font-size: 13px
@@ -40,3 +40,22 @@
         width: 40px
         height: 40px
         object-fit: contain
+
+.my-message .message__username
+  color: #537dfc
+
+.my-message:hover
+  background-color: #f4fcff
+
+  .icon-edit
+    visibility: visible
+
+.icon-edit
+  visibility: hidden
+  color: #d9d9d9
+  background: transparent
+  outline: none
+  border: none
+  font-size: 14px
+  padding: 0 2px 0 2px
+  margin-left: 10px
