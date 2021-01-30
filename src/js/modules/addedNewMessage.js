@@ -35,11 +35,15 @@ export const handleMessage = user => {
       alert('Для отправки формы поле должно быть заполнено!')
       return
     }
+    const scroll = document.querySelector('.messages')
 
     setPost({
       message, user
     })
-      .then(() => input.value = '')
+      .then(() => {
+        input.value = ''
+        scroll.scrollTop = scroll.scrollHeight
+      })
 
   }
 

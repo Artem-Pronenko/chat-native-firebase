@@ -50,6 +50,7 @@ const authEmailAndPassword = async (email, password, username, isRegister) => {
         displayName: username || 'user'
       })
       await updateUser(user, username, `https://via.placeholder.com/150`, 'Нет информации')
+      // window.location.reload()
       return
     }
     const userData = await firebase.auth().signInWithEmailAndPassword(email, password)
@@ -68,7 +69,7 @@ export const auth = () => {
     e.preventDefault()
     const email = document.querySelector('#inputEmail').value
     const password = document.querySelector('#inputPassword').value
-    const name = document.querySelector('#inputName') || {value: 'no user'}
+    const name = document.querySelector('#inputName')?.value || {value: ''}
 
     authEmailAndPassword(email, password, name, isRegister)
       .then(() => {

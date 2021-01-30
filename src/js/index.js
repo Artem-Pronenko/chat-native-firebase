@@ -14,12 +14,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import '../style/style.sass'
 
 firebase.auth().onAuthStateChanged(async user => {
+  console.log(user)
   if (!user) {
     const {auth} = await import('./modules/auth')
     setLocation(getUrlHash() || '#register')
     auth()
     return
   }
+  setLocation('/')
   renderInDocument(mainContent(user))
   renderInDocument(userSettingsModal())
   renderInDocument(userProfileModal())
@@ -27,6 +29,8 @@ firebase.auth().onAuthStateChanged(async user => {
   handleMessage(user)
   viewMessage().then(() => {
     managerMessage()
+    const scroll = document.querySelector('.messages')
+    scroll.scrollTop = scroll.scrollHeight
   })
   userSettings(user)
 
