@@ -18,7 +18,7 @@ export const updateMessage = async (updateData, id) => {
       .get()
 
     messageQuery.forEach(doc => {
-      doc.ref.set(updateData, {merge: true})
+      doc.ref.update(updateData)
     })
 
   } catch (e) {

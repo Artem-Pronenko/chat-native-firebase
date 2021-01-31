@@ -23,7 +23,7 @@ export const message = ({displayName, message, createAt, photoURL, uid}, key) =>
           </div>
         </div>
       </div>
-      <span class="date small">${new Date().toLocaleTimeString(createAt)}</span>
+      <span class="date small">${new Date(createAt).toLocaleTimeString()}</span>
     </div>
   `
   return {

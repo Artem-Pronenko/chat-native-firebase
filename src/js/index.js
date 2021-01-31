@@ -14,7 +14,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import '../style/style.sass'
 
 firebase.auth().onAuthStateChanged(async user => {
-  console.log(user)
   if (!user) {
     const {auth} = await import('./modules/auth')
     setLocation(getUrlHash() || '#register')

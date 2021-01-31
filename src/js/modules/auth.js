@@ -50,7 +50,7 @@ const authEmailAndPassword = async (email, password, username, isRegister) => {
         displayName: username || 'user'
       })
       await updateUser(user, username, `https://via.placeholder.com/150`, 'Нет информации')
-      // window.location.reload()
+      window.location.reload()
       return
     }
     const userData = await firebase.auth().signInWithEmailAndPassword(email, password)
