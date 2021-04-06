@@ -6,23 +6,25 @@ const db = firebase.firestore()
 
 export const updateMessage = async (updateData, id) => {
   try {
+
     const where = {
-      fieldPath: id ? 'id' : 'uid',
-      opSrt: '==',
+      filedPath: id ? 'id' : 'uid',
+      opStr: '==',
       value: id || firebase.auth().currentUser.uid
     }
 
-    const messageQuery = await db
-      .collection('message')
-      .where(where.fieldPath, where.opSrt, where.value)
-      .get()
+     const messageData = await db
+       .collection('message')
+       .where(where.filedPath, where.opStr, where.value)
+       .get()
 
-    messageQuery.forEach(doc => {
-      doc.ref.update(updateData)
-    })
+   messageData.forEach(doc => {
+     doc.ref.update(updateData)
+   })
 
-  } catch (e) {
+  } catch(e) {
     console.error(e)
   }
+
 
 }

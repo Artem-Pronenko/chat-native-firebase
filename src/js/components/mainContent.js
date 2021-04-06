@@ -1,6 +1,7 @@
 export const mainContent = ({displayName, photoURL}) => {
   const $el = document.createElement('div')
 
+
   $el.innerHTML = `
     <div>
       <nav class="navbar navbar-light bg-light justify-content-between">
@@ -33,6 +34,7 @@ export const mainContent = ({displayName, photoURL}) => {
       </div>
     </div>
   `
+
   return {
     node: $el
   }

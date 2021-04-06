@@ -1,36 +1,35 @@
 import firebase from 'firebase/app'
-import './modules/firebase'
 import 'firebase/auth'
-import {getUrlHash, renderInDocument, setLocation} from './modules/utils'
+import './module/firebaseConfig'
+import {getUrlHash, renderInDocument, setLocation} from './utiles'
 import {mainContent} from './components/mainContent'
-import {handleMessage} from './modules/addedNewMessage'
-import {viewMessage} from './modules/viewMessage'
+import {handleMessage} from './module/addedNewMessage'
+import {viewMassage} from './module/viewMessage'
 import {userSettingsModal} from './components/userSettingsModal'
-import {userSettings} from './modules/userSettings'
-import {managerMessage} from './modules/managerMessage'
-import {userProfileModal} from './components/userProfileModal'
+import {userSettings} from './module/userSettings'
+import {userProfile} from './components/userProfile'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../style/style.sass'
+import {manageMessage} from './module/manageMessage';
+
 
 firebase.auth().onAuthStateChanged(async user => {
   if (!user) {
-    const {auth} = await import('./modules/auth')
+    const {auth} = await import('./module/auth')
     setLocation(getUrlHash() || '#register')
     auth()
     return
   }
   setLocation('/')
+  console.log(user)
   renderInDocument(mainContent(user))
   renderInDocument(userSettingsModal())
-  renderInDocument(userProfileModal())
-
-  handleMessage(user)
-  viewMessage().then(() => {
-    managerMessage()
-    const scroll = document.querySelector('.messages')
-    scroll.scrollTop = scroll.scrollHeight
-  })
+  renderInDocument(userProfile())
   userSettings(user)
+  manageMessage()
+  handleMessage(user)
+
+  viewMassage()
 
 })

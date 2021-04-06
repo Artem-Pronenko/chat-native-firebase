@@ -1,13 +1,14 @@
+//
 import {getUserInfo} from './userSettings'
-import {updateMessage} from './updateMessage'
+import {updateMessage} from './updateMessage';
 
-export const managerMessage = () => {
+export const manageMessage = () => {
+
   const userModal = document.querySelector('.user-modal')
-  const userName = userModal.querySelector('.user-modal-name')
-  const userImg = userModal.querySelector('.user-modal-img')
-  const userModalBio = userModal.querySelector('.user-modal-bio')
-  const closeModal = userModal.querySelector('.close-user-profile')
-
+  const userModalName = document.querySelector('.user-modal-name')
+  const closeUserProfile = document.querySelector('.close-user-profile')
+  const userModalImg = document.querySelector('.user-modal-img')
+  const userModalBio = document.querySelector('.user-modal-bio')
 
   const openUserProfile = async ({target}) => {
     const userButton = target.closest('[data-user]')
@@ -16,8 +17,8 @@ export const managerMessage = () => {
     if (userButton) {
       const uid = userButton.dataset.user
       const {username, userBio, userPhoto} = await getUserInfo({uid})
-      userName.textContent = username
-      userImg.src = userPhoto
+      userModalName.textContent = username
+      userModalImg.src = userPhoto
       userModalBio.textContent = userBio
       userModal.classList.add('show')
     } else if (editButton) {
@@ -33,15 +34,13 @@ export const managerMessage = () => {
         }, id)
         message.removeEventListener('blur', blurMessageHandler)
       }
-
       message.addEventListener('blur', blurMessageHandler)
 
     }
+
   }
 
-  closeModal.addEventListener('click', () => {
-    userModal.classList.remove('show')
-  })
 
+  closeUserProfile.addEventListener('click', () => userModal.classList.remove('show'))
   document.querySelector('.messages').addEventListener('click', openUserProfile)
 }

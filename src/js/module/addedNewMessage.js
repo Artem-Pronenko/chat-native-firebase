@@ -9,19 +9,21 @@ const setPost = async ({message, user}) => {
     const id = createUid(16)
     const {uid, displayName, photoURL} = user
 
+
     await db.collection('message').doc(id).set({
       createAt: Date.now(),
       message,
       uid,
       displayName,
-      photoURL,
-      id
+      id,
+      photoURL
     })
-  } catch (e) {
+
+  } catch(e) {
     console.error(e)
   }
-
 }
+
 
 
 export const handleMessage = user => {
@@ -30,13 +32,14 @@ export const handleMessage = user => {
   const handleForm = e => {
     e.preventDefault()
     const input = document.querySelector('.input-message')
-    const message = input.value
-    if (message.trim() === '') {
-      alert('Для отправки формы поле должно быть заполнено!')
+    const message = input.value.trim()
+
+    if (message === '') {
+      alert('Для отправки смс поле должно быть заполненно!')
       return
     }
-    const scroll = document.querySelector('.messages')
 
+    const scroll = document.querySelector('.messages')
     setPost({
       message, user
     })
@@ -44,8 +47,8 @@ export const handleMessage = user => {
         input.value = ''
         scroll.scrollTop = scroll.scrollHeight
       })
-
   }
 
   messageForm.addEventListener('submit', handleForm)
+
 }

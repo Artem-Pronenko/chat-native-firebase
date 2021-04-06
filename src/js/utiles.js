@@ -4,22 +4,21 @@ export const renderInDocument = ({node, oldMessage}, inSelector = '#app') => {
     oldMessage.remove()
     return
   }
+
   return document.querySelector(inSelector).insertAdjacentElement('beforeend', node)
+
 }
 
-
-export const removeNode = (selector) => {
+export const removeNode = selector => {
   document.querySelector(selector).remove()
 }
 
-export const setLocation = (curLoc) => {
+export const setLocation = url => {
   try {
-    history.pushState(null, null, curLoc)
+     history.pushState(null, null, url)
     return
-  } catch (e) {
-  }
-  location.hash = '#' + curLoc
+  } catch(e) {}
+  location.hash = url
 }
-
 
 export const getUrlHash = () => window.location.hash

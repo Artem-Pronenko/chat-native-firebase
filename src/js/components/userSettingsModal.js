@@ -1,6 +1,7 @@
 export const userSettingsModal = () => {
   const $el = document.createElement('div')
 
+
   $el.innerHTML = `
     <div class="modal user-settings-modal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
@@ -47,6 +48,7 @@ export const userSettingsModal = () => {
       </div>
     </div>
   `
+
   return {
     node: $el
   }
